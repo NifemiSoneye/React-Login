@@ -126,6 +126,7 @@ const Register = () => {
               aria-describedby="uidnote"
               onFocus={() => setUserFocus(true)}
               onBlur={() => setUserFocus(false)}
+              value={user}
             />
             <p
               id="uidnote"
