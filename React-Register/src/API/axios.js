@@ -2,4 +2,6 @@ import axios from "axios";
 
 export default axios.create({
   baseURL: "http://localhost:3500",
+  headers: { "Content-Type": "application/json" },
+  withCredentials: true, // ← this needs to be here too
 });

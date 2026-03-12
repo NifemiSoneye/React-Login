@@ -17,7 +17,7 @@ const Users = () => {
         console.log(response.data);
         isMounted && setUsers(response.data);
       } catch (err) {
-        console.err(err);
+        console.error(err);
       }
     };
 
@@ -25,7 +25,7 @@ const Users = () => {
 
     return () => {
       isMounted = false;
-      controller.abort;
+      controller.abort();
     };
   }, []);
   return (
