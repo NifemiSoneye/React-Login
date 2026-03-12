@@ -6,7 +6,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 const LOGIN_URL = "./auth";
 
 const Login = () => {
-  const { setAuth } = UseAuth();
+  const { setAuth, persist, setPersist } = UseAuth();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -55,6 +55,14 @@ const Login = () => {
     /* console.log(user, pwd); */
   };
 
+  const togglePersist = () => {
+    setPersist((prev) => !prev);
+  };
+
+  useEffect(() => {
+    localStorage.setItem("persist", persist);
+  }, [persist]);
+
   useEffect(() => {
     setErrMsg("");
   }, [user, pwd]);
@@ -101,12 +109,21 @@ const Login = () => {
           value={pwd}
         />
         <button>Sign In</button>
+        <div className="persistCheck">
+          <input
+            type="checkbox"
+            id="persist"
+            onChange={togglePersist}
+            checked={persist}
+          />
+
+          <label htmlFor="persist">Trust this device</label>
+        </div>
       </form>
       <p>
         Need an account ? <br />
         <span className="line">
-          {/* put router link here */}
-          <a href="#">Sign Up</a>
+          <Link to="/register">Sign Up</Link>
         </span>
       </p>
     </section>

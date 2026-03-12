@@ -2,7 +2,7 @@ import axios from "../API/axios";
 import UseAuth from "./UseAuth";
 
 const useLogout = () => {
-  const { setAuth } = useAuth();
+  const { setAuth } = UseAuth();
   const logOut = async () => {
     setAuth({});
     try {
