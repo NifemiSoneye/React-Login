@@ -4,6 +4,7 @@ import Public from "./components/Public";
 import Login from "./features/auth/Login";
 import Welcome from "./features/auth/Welcome";
 import RequireAuth from "./features/auth/RequireAuth";
+import UsersList from "./features/users/UsersList";
 
 function App() {
   return (
@@ -11,10 +12,11 @@ function App() {
       <Route path="/" element={<Layout />}>
         {/* Public Routes */}
         <Route index element={<Public />}></Route>
-        <Route path="login" element={<Public />}></Route>
+        <Route path="login" element={<Login />}></Route>
         {/* Protected Routes */}
         <Route element={<RequireAuth />}>
           <Route path="welcome" element={<Welcome />} />
+          <Route path="userslist" element={<UsersList />} />
         </Route>
       </Route>
     </Routes>
